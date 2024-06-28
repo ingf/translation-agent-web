@@ -178,19 +178,19 @@ export default function Component() {
           <textarea
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            className="w-full min-h-40 h-auto  p-2  m-1 rounded focus:outline-none  border-none md:border md:border-solid"
+            className="flex-1 min-h-40 h-auto p-2  m-1 rounded focus:outline-none  border-none md:border md:border-solid"
             placeholder="输入文本"
           />
 
-          <div className="w-full min-h-40 h-auto p-2  m-1 rounded focus:outline-none  border-none bg-gray-100 ">
-            {improveTranslation || '翻译结果'}
-          </div>
+          <pre className="flex-1 min-h-40 h-auto p-2  m-1 rounded focus:outline-none  border-none bg-gray-100">
+            {improveTranslation || '优化翻译'}
+          </pre>
         </div>
 
         <div className="flex flex-col md:flex-row ">
-          <div className="flex-1 min-h-40 h-auto p-2  m-1 rounded focus:outline-none  border-none bg-gray-100 ">
-            {initialTranslation || '初次翻译结果'}
-          </div>
+          <pre className="flex-1 min-h-40 h-auto p-2  m-1 rounded focus:outline-none  border-none bg-gray-100 ">
+            {initialTranslation || '初翻结果'}
+          </pre>
 
           <pre className="flex-1 min-h-40 h-auto p-2  m-1 rounded focus:outline-none  border-none bg-gray-100 ">
             {reflectTranslation || '优化建议'}

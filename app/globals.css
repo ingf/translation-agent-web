@@ -7,3 +7,6 @@ pre {
   word-wrap: break-word; /* 支持长单词换行 */
   font-size: 0.85rem;
 }
+textarea {
+  font-size: 0.95rem;
+}

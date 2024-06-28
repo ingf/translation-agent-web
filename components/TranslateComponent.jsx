@@ -16,8 +16,8 @@ export default function Component() {
   const [initialTranslation, setInitialTranslation] = useState('')
   const [reflectTranslation, setReflectionTranslation] = useState('')
   const [improveTranslation, setImproveTranslation] = useState('')
-  const [sourceLang, setSourceLang] = useState('en')
-  const [targetLang, setTargetLang] = useState('zh')
+  const [sourceLang, setSourceLang] = useState('English')
+  const [targetLang, setTargetLang] = useState('Chinese')
 
   const handleInputChange = (e) => {
     setInputText(e.target.value)
@@ -134,9 +134,9 @@ export default function Component() {
         <div className="flex items-center space-x-2">
           <h1 className="text-xl font-bold">AI 翻译</h1>
         </div>
-        <div className="flex items-center space-x-4">
+        {/* <div className="flex items-center space-x-4">
           <SettingsIcon className="h-6 w-6" />
-        </div>
+        </div> */}
       </header>
       <main className="flex flex-col  p-4 ">
         <div className="flex ">
@@ -150,10 +150,16 @@ export default function Component() {
                 <SelectValue placeholder="选择语言" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="en">英语</SelectItem>
-                <SelectItem value="zh">中文 (简体)</SelectItem>
-                <SelectItem value="ja">日语</SelectItem>
-                <SelectItem value="de">德语</SelectItem>
+                <SelectItem value="English">英语</SelectItem>
+                <SelectItem value="Chinese">中文 (简体)</SelectItem>
+                <SelectItem value="Japanese">日语</SelectItem>
+                <SelectItem value="German">德语</SelectItem>
+                <SelectItem value="French">法语</SelectItem>
+                <SelectItem value="Spanish">西班牙语</SelectItem>
+                <SelectItem value="Korean">韩语</SelectItem>
+                <SelectItem value="Russian">俄语</SelectItem>
+                <SelectItem value="Italian">意大利语</SelectItem>
+                <SelectItem value="Portuguese">葡萄牙语</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -166,10 +172,16 @@ export default function Component() {
                 <SelectValue placeholder="选择语言" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="en">英语</SelectItem>
-                <SelectItem value="zh">中文 (简体)</SelectItem>
-                <SelectItem value="ja">日语</SelectItem>
-                <SelectItem value="de">德语</SelectItem>
+                <SelectItem value="English">英语</SelectItem>
+                <SelectItem value="Chinese">中文 (简体)</SelectItem>
+                <SelectItem value="Japanese">日语</SelectItem>
+                <SelectItem value="German">德语</SelectItem>
+                <SelectItem value="French">法语</SelectItem>
+                <SelectItem value="Spanish">西班牙语</SelectItem>
+                <SelectItem value="Korean">韩语</SelectItem>
+                <SelectItem value="Russian">俄语</SelectItem>
+                <SelectItem value="Italian">意大利语</SelectItem>
+                <SelectItem value="Portuguese">葡萄牙语</SelectItem>
               </SelectContent>
             </Select>
           </div>

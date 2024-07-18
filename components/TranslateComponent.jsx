@@ -80,52 +80,41 @@ export default function Component() {
 
   let stage = ''
   const processChunk = (data) => {
-    try {
-      console.log('data', data)
-      if (data === null || data === ' \n' || data === '\n') return
-      switch (data) {
-        case 'initialTranslation':
-          stage = 'initialTranslation'
-          setInitialTranslation('')
-          break
-        case 'reflectTranslation':
-          stage = 'reflectTranslation'
-          setReflectionTranslation('')
-          break
-        case 'improveTranslation':
-          stage = 'improveTranslation'
-          setImproveTranslation('')
-          console.log('改进的翻译完成')
-          break
-        case 'complete':
-          console.log('翻译过程完成')
-          break
-        case 'error':
-          console.error('翻译过程中出错:', data)
-          alert(data)
-          break
-      }
-      setTimeout(() => {}, 1)
-      if (stage === 'initialTranslation' && data !== 'initialTranslation') {
-        setInitialTranslation((prev) => prev + '\n' + data)
-      } else if (
-        stage === 'reflectTranslation' &&
-        data !== 'reflectTranslation'
-      ) {
-        setReflectionTranslation((prev) => {
-          console.log('prev:', prev, 'data:', data)
-          return prev + '\n' + data
-        })
-      } else if (
-        stage === 'improveTranslation' &&
-        data !== 'improveTranslation'
-      ) {
-        setImproveTranslation((prev) => prev + '\n' + data)
-      }
-    } catch (error) {
-      console.error('解析 JSON 时出错:', error)
-      alert(error)
+    console.log('data', data)
+
+    if (data === null || data === ' \n' || data === '\n') return
+
+    const dataFunctions = {
+      initialTranslation: setInitialTranslation,
+      reflectTranslation: setReflectionTranslation,
+      improveTranslation: setImproveTranslation,
+      complete: () => console.log('翻译过程完成'),
+      error(msg) {
+        console.error('翻译过程中出错:', msg)
+        alert(msg)
+      },
     }
+
+    if (dataFunctions[data]) {
+      if (data !== 'complete' && data !== 'error') {
+        stage = data
+        dataFunctions[data]('')
+      } else {
+        dataFunctions[data](data)
+      }
+    }
+
+    const stageFunctions = {
+      initialTranslation: setInitialTranslation,
+      reflectTranslation: setReflectionTranslation,
+      improveTranslation: setImproveTranslation,
+    }
+
+    setTimeout(() => {
+      if (stageFunctions[stage] && stage !== data) {
+        stageFunctions[stage]((prev) => prev + '\n' + data)
+      }
+    }, 1)
   }
 
   return (
